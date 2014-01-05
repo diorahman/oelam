@@ -27,7 +27,7 @@ public class Oelam : Object{
     } else {
       command_line = args[1];
       if (args.length > 1) {
-        arguments = args[2:args.length - 1];
+        arguments = args[2:args.length];
       }
     }
 
