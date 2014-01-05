@@ -18,7 +18,8 @@ private class Create : Command {
     base(oe);
   }
 
-  public override void run(string[] args){
-    stdout.printf("create\n");
+  public override int run(string[] args){
+    stdout.printf("`create` is not yet implemented\n");
+    return 0;
   }
 }

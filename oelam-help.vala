@@ -18,7 +18,8 @@ private class Help : Command {
     base(oe);
   }
 
-  public override void run(string[] args){
-    stdout.printf("help\n");
+  public override int run(string[] args){
+    stdout.printf("help is not yet provided\n");
+    return 0;
   }
 }

@@ -22,7 +22,6 @@ public class Oelam : Object{
     var command_line = "";
     string[] arguments = {};
     if (args.length == 1) {
-      stdout.printf("run oelam in current dir\n");
       command_line = "run";
     } else {
       command_line = args[1];
@@ -35,7 +34,13 @@ public class Oelam : Object{
     if (command != null) {
       command.run(arguments);
     } else {
-      stderr.printf("Unknown command\n");
+      arguments = args[1:args.length];
+      command = parse_command_line("run");
+      int ret = command.run(arguments);
+      if (ret > 0) {
+        stderr.printf("Or `%s` is unknown command\n", args[1]);
+      }
+
     }
   }
 
@@ -54,5 +59,5 @@ public abstract class Command {
   public abstract string name { get; }
   public abstract string description { get; }
   public abstract string help { get; }
-  public abstract void run(string[] args);
+  public abstract int run(string[] args);
 }

@@ -19,7 +19,7 @@ private class Run : Command {
     base(oe);
   }
 
-  public override void run(string[] args){
+  public override int run(string[] args){
     string path = ".";
 
     if (args.length > 0) {
@@ -27,23 +27,28 @@ private class Run : Command {
     }
 
     File file = File.new_for_path(path);
+    string fullpath = file.get_path();
     bool exists = file.query_exists();
 
     if (exists) {
       FileType type = file.query_file_type(FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
       if (type == FileType.DIRECTORY) {
-        string fullpath = file.get_path();
         bool valid_path = validate_path(fullpath);
 
         if (valid_path) {
-          show(fullpath, args);
+          return show(fullpath, args);
         } else {
-          stderr.printf("not an oelam app\n");
+          stderr.printf("Not a valid oelam app\n");
+          return 1;
         }
 
       } else {
-        stderr.printf("wrong type\n");
+        stderr.printf("Wrong type\n");
+        return 1;
       }
+    } else {
+      stderr.printf("Not exist\n");
+      return 1;
     }
   }
 
@@ -59,7 +64,7 @@ private class Run : Command {
     return true;
   }
 
-  private void show(string path, string[] args) {
+  private int show(string path, string[] args) {
     Gtk.init(ref args);
     var c = new ConfigXML(path);
     var w = new AppWindow(c);
@@ -71,8 +76,12 @@ private class Run : Command {
       w.default_height = c.height;
     }
 
-    // w.title = c.title.strip ();
+    if (c.title != null) {
+      w.title = c.title.strip();
+    }
+
     w.show_all();
     Gtk.main();
+    return 0;
   }
 }
