@@ -17,6 +17,7 @@ public class Oelam : Object{
     this.commands.set("help", new Help(this));
     this.commands.set("create", new Create(this));
     this.commands.set("run", new Run(this));
+    this.commands.set("debug", new Debug(this));
   }
 
   public void run(string[] args){
