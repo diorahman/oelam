@@ -12,6 +12,7 @@ public class Oelam : Object{
   }
 
   public Oelam(){
+    Utils.init();
     this.commands = new HashMap<string, Command>(str_hash, str_equal);
     this.commands.set("help", new Help(this));
     this.commands.set("create", new Create(this));
