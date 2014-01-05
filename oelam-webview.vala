@@ -1,3 +1,8 @@
+/*
+   Copyright (C) 2013 Mohammad Anwari <mdamt@mdamt.net>
+   https://github.com/mdamt/maleo
+*/
+
 using Gtk;
 using WebKit;
 

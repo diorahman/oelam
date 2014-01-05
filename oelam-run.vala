@@ -65,6 +65,10 @@ private class Run : Command {
   }
 
   private int show(string path, string[] args) {
+
+    // following lines are copied from https://github.com/mdamt/maleo/src/main.vala
+    // Copyright (C) 2013 Mohammad Anwari <mdamt@mdamt.net>
+
     Gtk.init(ref args);
     var c = new ConfigXML(path);
     var w = new AppWindow(c);

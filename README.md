@@ -10,4 +10,5 @@ poetjoek ditjinta oelam poen tiba
   $ oelam run debug
   $ oelam help
 ```
-  
+ 
+LICENSE MIT 
