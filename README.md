@@ -1,5 +1,7 @@
 poetjoek ditjinta oelam poen tiba
 
+ROADMAP
+
 ```
   $ cd /home/diorahman/Experiments
   $ oelam create com.rockybars.App app
@@ -9,6 +11,12 @@ poetjoek ditjinta oelam poen tiba
   $ oelam
   $ oelam run debug
   $ oelam help
+```
+
+EXAMPLE
+
+```
+  $ ./oelam example/oelam-hello
 ```
  
 LICENSE MIT 
